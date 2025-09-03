@@ -1,8 +1,8 @@
 //  Main app widget
 
-import 'package:clean_architecture/app/router.dart';
+import 'package:clean_architecture/config/routes/router.dart';
 import 'package:clean_architecture/core/localization/localization.dart';
-import 'package:clean_architecture/core/themes/app_theme.dart';
+import 'package:clean_architecture/config/themes/app_theme.dart';
 import 'package:flutter/material.dart';
 
 class MyApp extends StatelessWidget {
@@ -13,9 +13,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp.router(
       routerConfig: AppRouter.goRouter,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       locale: Localization.currentLocale,
+      debugShowCheckedModeBanner: false,
     );
   }
 }
