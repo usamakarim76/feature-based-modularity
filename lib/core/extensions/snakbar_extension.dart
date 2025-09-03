@@ -41,7 +41,7 @@ extension SnackBarExtension on BuildContext {
           message,
           style: bodyLarge?.copyWith(color: AppColors.white),
         ),
-        backgroundColor: AppColors.failure,
+        backgroundColor: AppColors.error,
         behavior: SnackBarBehavior.floating,
         duration: duration,
         // padding: EdgeInsets.symmetric(vertical: 20.h),

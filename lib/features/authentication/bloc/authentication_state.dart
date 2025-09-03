@@ -4,14 +4,24 @@ sealed class AuthenticationState {}
 
 final class AuthenticationInitial extends AuthenticationState {}
 
-final class LoginState extends AuthenticationState {
+class LoginState extends AuthenticationState {
+  final RequestStatus status;
   final bool isLoading;
   final String? errorMessage;
 
-  LoginState({this.isLoading = false, this.errorMessage});
+  LoginState({
+    this.status = RequestStatus.idle,
+    this.isLoading = false,
+    this.errorMessage,
+  });
 
-  LoginState copyWith({bool? isLoading, String? errorMessage}) {
+  LoginState copyWith({
+    RequestStatus? status,
+    bool? isLoading,
+    String? errorMessage,
+  }) {
     return LoginState(
+      status: status ?? this.status,
       isLoading: isLoading ?? this.isLoading,
       errorMessage: errorMessage ?? this.errorMessage,
     );

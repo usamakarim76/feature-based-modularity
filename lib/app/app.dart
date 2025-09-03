@@ -1,5 +1,6 @@
 //  Main app widget
 
+import 'package:clean_architecture/config/responsive/responsive_config.dart';
 import 'package:clean_architecture/config/routes/router.dart';
 import 'package:clean_architecture/core/localization/localization.dart';
 import 'package:clean_architecture/config/themes/app_theme.dart';
@@ -11,10 +12,11 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    ResponsiveConfig.init(context);
     return MaterialApp.router(
       routerConfig: AppRouter.goRouter,
-      theme: AppTheme.light,
-      darkTheme: AppTheme.dark,
+      theme: AppTheme.lightTheme,
+      darkTheme: AppTheme.darkTheme,
       locale: Localization.currentLocale,
       debugShowCheckedModeBanner: false,
     );

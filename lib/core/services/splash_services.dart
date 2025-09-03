@@ -1,6 +1,8 @@
 import 'dart:async';
+import 'package:clean_architecture/config/routes/routes.dart';
 import 'package:clean_architecture/core/constants/app_logs.dart';
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 
 class SplashServices {
   // final AuthenticationRepository _authRepo = AuthenticationRepository.instance;
@@ -13,6 +15,7 @@ class SplashServices {
       AppLogger(className: "SplashServices").info('User is  not logged in');
 
       Timer(const Duration(seconds: 2), () {
+        context.goNamed(Routes.loginScreen);
         // if (isLoggedIn) {
 
         // If user is logged in, navigate to home screen
