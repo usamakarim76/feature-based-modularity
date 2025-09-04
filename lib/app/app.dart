@@ -15,8 +15,8 @@ class MyApp extends StatelessWidget {
     ResponsiveConfig.init(context);
     return MaterialApp.router(
       routerConfig: AppRouter.goRouter,
-      theme: AppTheme.lightTheme,
-      darkTheme: AppTheme.darkTheme,
+      theme: AppTheme.light,
+      darkTheme: AppTheme.dark,
       locale: Localization.currentLocale,
       debugShowCheckedModeBanner: false,
     );

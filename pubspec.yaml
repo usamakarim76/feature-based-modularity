@@ -30,9 +30,11 @@ environment:
 dependencies:
   cupertino_icons: ^1.0.8
   dio: ^5.9.0
+  equatable: ^2.0.7
   flutter:
     sdk: flutter
   flutter_bloc: ^9.1.1
+  flutter_dotenv: ^6.0.0
   flutter_secure_storage: ^9.2.4
   get_it: ^8.2.0
   go_router: ^16.2.1
@@ -40,6 +42,7 @@ dependencies:
   intl: ^0.20.2
   permission_handler: ^12.0.1
   purchases_flutter: ^9.4.0
+  supabase_flutter: ^2.10.0
 
 dev_dependencies:
   flutter_lints: ^5.0.0

@@ -5,30 +5,28 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'widgets/auth_form.dart';
 
-class LoginScreen extends StatelessWidget {
-  const LoginScreen({super.key});
+class RegisterScreen extends StatelessWidget {
+  const RegisterScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('Login')),
+      appBar: AppBar(title: const Text('Register')),
       body: BlocConsumer<AuthenticationBloc, AuthenticationState>(
         listener: (context, state) {
           if (state.status == RequestStatus.success) {
-            ScaffoldMessenger.of(
-              context,
-            ).showSnackBar(const SnackBar(content: Text('Login Successful')));
-            // Navigate or do something
-          } else if (state.status == RequestStatus.failure) {
+            context.showSuccessSnackBar('Registration Successful');
+          } else if (state.status == RequestStatus.failure &&
+              state.error != null) {
             context.showErrorSnackBar(state.error ?? 'An error occurred');
           }
         },
         builder: (context, state) {
           return AuthForm(
-            buttonLabel: "Login",
+            buttonLabel: "Register",
             onSubmit: (email, password) {
               context.read<AuthenticationBloc>().add(
-                AuthLoginRequested(email: email, password: password),
+                AuthRegisterRequested(email: email, password: password),
               );
             },
             error: state.error,
